@@ -18,7 +18,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://portafolio-henaom7.vercel.app'),
+  metadataBase: new URL('https://portafolio-ochre-gamma.vercel.app'),
   title: 'Miguel Ángel Henao — Data Analyst',
   description:
     'Portafolio profesional de Miguel Ángel Henao, Data Analyst con background en QA. Especialista en SQL, Python, Power BI y Data Quality.',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     description:
       'Data Analyst | QA Engineer | Python · SQL · Power BI · Data Quality',
     type: 'website',
-    url: 'https://portafolio-henaom7.vercel.app',
+    url: 'https://portafolio-ochre-gamma.vercel.app',
     locale: 'es_CO',
     siteName: 'Miguel Ángel Henao — Portafolio',
   },
