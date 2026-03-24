@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV — Miguel Ángel Henao Cañas | Data Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark:       #0f1f38;
+      --dark-2:     #162340;
+      --dark-3:     #1e2f52;
+      --dark-4:     #243566;
+      --cyan:       #22d3ee;
+      --cyan-dim:   #0ea5c5;
+      --blue:       #60a5fa;
+      --blue-dim:   #3b82f6;
+      --white:      #ffffff;
+      --off-white:  #f8fafc;
+      --light-gray: #f1f5f9;
+      --border:     #e2e8f0;
+      --text-dark:  #0f172a;
+      --text-mid:   #334155;
+      --text-soft:  #64748b;
+      --text-xsoft: #94a3b8;
+      --accent-tag: rgba(34,211,238,.12);
+    }
+
+    html { font-size: 10.5pt; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
+      line-height: 1.5;
+    }
+
+    /* ─── Print ────────────────────────────────────────────────── */
+    @page { size: A4; margin: 0; }
+    @media print {
+      html { font-size: 9.5pt; }
+      .no-print { display: none !important; }
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page-break { page-break-before: always; }
+    }
+
+    /* ─── Layout ───────────────────────────────────────────────── */
+    .cv-wrapper {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── HEADER ───────────────────────────────────────────────── */
+    .cv-header {
+      background: var(--dark);
+      padding: 22px 28px 18px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cv-header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--cyan), var(--blue), var(--cyan));
+    }
+    .header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .header-name h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22pt;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.3px;
+      line-height: 1.1;
+    }
+    .header-name .title {
+      margin-top: 5px;
+      font-size: 9.5pt;
+      font-weight: 500;
+      color: var(--cyan);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+    .header-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-align: right;
+      padding-top: 2px;
+    }
+    .header-contacts a,
+    .header-contacts span {
+      font-size: 8.5pt;
+      color: #94a3b8;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 5px;
+    }
+    .header-contacts a:hover { color: var(--cyan); }
+    .contact-icon {
+      width: 13px; height: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ─── BODY ─────────────────────────────────────────────────── */
+    .cv-body {
+      display: flex;
+      flex: 1;
+    }
+
+    /* ─── SIDEBAR ──────────────────────────────────────────────── */
+    .sidebar {
+      width: 72mm;
+      background: var(--dark-2);
+      padding: 20px 18px;
+      flex-shrink: 0;
+    }
+    .sidebar-section { margin-bottom: 18px; }
+    .sidebar-section:last-child { margin-bottom: 0; }
+
+    .s-title {
+      font-size: 7.5pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--cyan);
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(34,211,238,.2);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .s-title svg { flex-shrink: 0; }
+
+    /* Purpose */
+    .s-purpose p {
+      font-size: 8.2pt;
+      color: #cbd5e1;
+      line-height: 1.55;
+      margin-bottom: 6px;
+    }
+
+    /* Value bullets */
+    .value-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .value-list li {
+      font-size: 8pt;
+      color: #cbd5e1;
+      display: flex;
+      align-items: flex-start;
+      gap: 5px;
+      line-height: 1.45;
+    }
+    .value-list li::before {
+      content: '▸';
+      color: var(--cyan);
+      font-size: 8pt;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Stack groups */
+    .stack-group { margin-bottom: 8px; }
+    .stack-group-title {
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 4px;
+    }
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+    }
+    .tag {
+      font-size: 7pt;
+      font-weight: 500;
+      color: var(--cyan);
+      background: rgba(34,211,238,.1);
+      border: 1px solid rgba(34,211,238,.25);
+      border-radius: 3px;
+      padding: 1px 5px;
+      white-space: nowrap;
+    }
+    .tag.blue {
+      color: var(--blue);
+      background: rgba(96,165,250,.1);
+      border-color: rgba(96,165,250,.25);
+    }
+    .tag.gray {
+      color: #94a3b8;
+      background: rgba(148,163,184,.1);
+      border-color: rgba(148,163,184,.2);
+    }
+
+    /* Education */
+    .edu-item { margin-bottom: 8px; }
+    .edu-item:last-child { margin-bottom: 0; }
+    .edu-deg {
+      font-size: 8pt;
+      font-weight: 600;
+      color: #e2e8f0;
+      line-height: 1.3;
+    }
+    .edu-inst {
+      font-size: 7.5pt;
+      color: #94a3b8;
+      margin-top: 1px;
+    }
+    .edu-status {
+      display: inline-block;
+      font-size: 6.5pt;
+      font-weight: 600;
+      color: var(--cyan);
+      background: rgba(34,211,238,.12);
+      border: 1px solid rgba(34,211,238,.3);
+      border-radius: 2px;
+      padding: 0px 4px;
+      margin-top: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Competencies */
+    .competency-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+    }
+
+    /* Differential */
+    .diff-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .diff-list li {
+      font-size: 7.8pt;
+      color: #cbd5e1;
+      display: flex;
+      align-items: flex-start;
+      gap: 5px;
+      line-height: 1.4;
+    }
+    .diff-list li::before {
+      content: '✓';
+      color: var(--cyan);
+      font-size: 8pt;
+      flex-shrink: 0;
+    }
+
+    /* ─── MAIN CONTENT ─────────────────────────────────────────── */
+    .main-content {
+      flex: 1;
+      padding: 20px 22px;
+      background: var(--white);
+    }
+
+    .m-section { margin-bottom: 18px; }
+    .m-section:last-child { margin-bottom: 0; }
+
+    .m-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 8.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--dark);
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid var(--light-gray);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .m-title::before {
+      content: '';
+      display: block;
+      width: 3px;
+      height: 14px;
+      background: linear-gradient(to bottom, var(--cyan), var(--blue));
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Experience card */
+    .exp-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--cyan);
+      border-radius: 5px;
+      padding: 11px 14px;
+    }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .exp-role {
+      font-family: 'Poppins', sans-serif;
+      font-size: 10pt;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+    .exp-period {
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: var(--white);
+      background: var(--dark-3);
+      border-radius: 3px;
+      padding: 2px 7px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .exp-company {
+      font-size: 8.5pt;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+    .exp-company strong { color: var(--blue-dim); }
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px 8px;
+    }
+    .impact-item {
+      font-size: 8pt;
+      color: var(--text-mid);
+      display: flex;
+      align-items: flex-start;
+      gap: 5px;
+      line-height: 1.4;
+    }
+    .impact-item::before {
+      content: '→';
+      color: var(--cyan-dim);
+      font-size: 8pt;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 7px;
+    }
+    .proj-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 9px 11px;
+      position: relative;
+      overflow: hidden;
+    }
+    .proj-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+    }
+    .proj-card.cyan-card::before { background: linear-gradient(90deg, var(--cyan), var(--blue)); }
+    .proj-card.blue-card::before { background: linear-gradient(90deg, var(--blue), #a78bfa); }
+    .proj-card.purple-card::before { background: linear-gradient(90deg, #a78bfa, var(--cyan)); }
+
+    .proj-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 8pt;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 5px;
+      line-height: 1.3;
+    }
+    .proj-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .proj-bullets li {
+      font-size: 7.5pt;
+      color: var(--text-mid);
+      display: flex;
+      align-items: flex-start;
+      gap: 4px;
+      line-height: 1.35;
+    }
+    .proj-bullets li::before {
+      content: '·';
+      color: var(--cyan-dim);
+      font-size: 10pt;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    /* Declaration */
+    .declaration-box {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark-3) 100%);
+      border-radius: 6px;
+      padding: 12px 16px;
+      border-left: 3px solid var(--cyan);
+    }
+    .declaration-box p {
+      font-size: 8.5pt;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+    .declaration-box p strong {
+      color: var(--cyan);
+    }
+    .declaration-tagline {
+      margin-top: 7px;
+      font-size: 8pt;
+      color: #64748b;
+      font-style: italic;
+    }
+
+    /* ─── Print button ─────────────────────────────────────────── */
+    .print-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0f1f38;
+      color: #22d3ee;
+      border: 1px solid rgba(34,211,238,.4);
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.3);
+      transition: all .2s;
+      z-index: 100;
+    }
+    .print-btn:hover {
+      background: #162340;
+      border-color: #22d3ee;
+      box-shadow: 0 4px 24px rgba(34,211,238,.2);
+    }
+  </style>
+</head>
+<body>
+
+<div class="cv-wrapper">
+
+  <!-- ══════════════════ HEADER ══════════════════ -->
+  <header class="cv-header">
+    <div class="header-top">
+      <div class="header-name">
+        <h1>Miguel Ángel Henao Cañas</h1>
+        <div class="title">Data Analyst &nbsp;·&nbsp; Data Quality &nbsp;·&nbsp; Business Intelligence</div>
+      </div>
+      <div class="header-contacts">
+        <span>
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          Medellín, Colombia
+        </span>
+        <a href="mailto:miguelhenaoc2007@gmail.com">
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </span>
+          miguelhenaoc2007@gmail.com
+        </a>
+        <a href="https://linkedin.com/in/henaom777" target="_blank">
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </span>
+          linkedin.com/in/henaom777
+        </a>
+        <a href="https://github.com/HenaoM7" target="_blank">
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          </span>
+          github.com/HenaoM7
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════════════ BODY ══════════════════ -->
+  <div class="cv-body">
+
+    <!-- ──────────── SIDEBAR ──────────── -->
+    <aside class="sidebar">
+
+      <!-- Propósito -->
+      <div class="sidebar-section s-purpose">
+        <div class="s-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Propósito
+        </div>
+        <p>Transformo datos en decisiones estratégicas mediante análisis, automatización y aseguramiento de calidad.</p>
+        <p>Trabajo desde el origen del dato hasta su interpretación final: <em style="color:#94a3b8">un análisis solo es útil si los datos son correctos.</em></p>
+      </div>
+
+      <!-- Propuesta de Valor -->
+      <div class="sidebar-section">
+        <div class="s-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Propuesta de Valor
+        </div>
+        <ul class="value-list">
+          <li>Identifico problemas de calidad que impactan el negocio</li>
+          <li>Construyo KPIs alineados a objetivos estratégicos</li>
+          <li>Automatizo procesos analíticos y de validación</li>
+          <li>Desarrollo dashboards ejecutivos en Power BI</li>
+          <li>Conecto análisis técnico con visión de negocio</li>
+        </ul>
+      </div>
+
+      <!-- Stack -->
+      <div class="sidebar-section">
+        <div class="s-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Stack Analítico
+        </div>
+        <div class="stack-group">
+          <div class="stack-group-title">Data & BI</div>
+          <div class="tag-cloud">
+            <span class="tag">SQL Avanzado</span>
+            <span class="tag">Python</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">EDA</span>
+            <span class="tag">DAX</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <div class="stack-group-title">Librerías</div>
+          <div class="tag-cloud">
+            <span class="tag blue">Pandas</span>
+            <span class="tag blue">NumPy</span>
+            <span class="tag blue">Matplotlib</span>
+            <span class="tag blue">Seaborn</span>
+            <span class="tag blue">Scikit-Learn</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <div class="stack-group-title">Herramientas</div>
+          <div class="tag-cloud">
+            <span class="tag gray">Git</span>
+            <span class="tag gray">Azure DevOps</span>
+            <span class="tag gray">Jupyter</span>
+            <span class="tag gray">Excel</span>
+            <span class="tag gray">VS Code</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Diferencial -->
+      <div class="sidebar-section">
+        <div class="s-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Diferencial QA
+        </div>
+        <ul class="diff-list">
+          <li>Entiendo los datos desde su origen</li>
+          <li>Detecto errores antes del impacto</li>
+          <li>Aseguro confiabilidad analítica</li>
+          <li>Calidad de software + calidad de datos</li>
+        </ul>
+        <p style="margin-top:7px;font-size:7.5pt;color:#94a3b8;font-style:italic;line-height:1.4">No solo analizo datos — garantizo que sean correctos.</p>
+      </div>
+
+      <!-- Educación -->
+      <div class="sidebar-section">
+        <div class="s-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Educación
+        </div>
+        <div class="edu-item">
+          <div class="edu-deg">Tecnología en Sistemas</div>
+          <div class="edu-inst">Inst. Universitaria Salazar y Herrera</div>
+          <span class="edu-status">En curso</span>
+        </div>
+        <div class="edu-item">
+          <div class="edu-deg">Técnico en Programación</div>
+          <div class="edu-inst">SENA</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-deg">Bachiller Académico</div>
+          <div class="edu-inst">INEM</div>
+        </div>
+        <div style="margin-top:6px;padding-top:6px;border-top:1px solid rgba(148,163,184,.15)">
+          <div style="font-size:7.2pt;color:#94a3b8;margin-bottom:3px">Formación continua</div>
+          <div class="tag-cloud">
+            <span class="tag" style="font-size:6.5pt">Platzi</span>
+            <span class="tag gray" style="font-size:6.5pt">40+ certs.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Competencias -->
+      <div class="sidebar-section">
+        <div class="s-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          Competencias
+        </div>
+        <div class="competency-list">
+          <span class="tag gray" style="font-size:7pt">Pensamiento analítico</span>
+          <span class="tag gray" style="font-size:7pt">Comunicación</span>
+          <span class="tag gray" style="font-size:7pt">Disciplina</span>
+          <span class="tag gray" style="font-size:7pt">Resolución de problemas</span>
+          <span class="tag gray" style="font-size:7pt">Mejora continua</span>
+          <span class="tag gray" style="font-size:7pt">Liderazgo</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ──────────── MAIN CONTENT ──────────── -->
+    <main class="main-content">
+
+      <!-- Experiencia -->
+      <div class="m-section">
+        <div class="m-title">Experiencia Profesional</div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">QA / Data Quality Analyst</div>
+              <div class="exp-company">
+                <strong>Quipux</strong> · Empresa internacional de movilidad y transporte · Colombia
+              </div>
+            </div>
+            <span class="exp-period">03/2025 – 03/2026</span>
+          </div>
+          <div class="impact-grid">
+            <div class="impact-item">Validación de millones de registros transaccionales con SQL avanzado</div>
+            <div class="impact-item">Reducción de tiempos de prueba manuales en <strong>40%</strong> con automatización</div>
+            <div class="impact-item">Detección de inconsistencias: duplicados, nulos e integridad referencial</div>
+            <div class="impact-item">Integración de pruebas en pipelines CI/CD con Azure DevOps</div>
+            <div class="impact-item">Análisis de logs y trazabilidad de datos transaccionales</div>
+            <div class="impact-item">Aseguramiento de calidad pre-producción: completitud, unicidad y vigencia</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proyectos -->
+      <div class="m-section">
+        <div class="m-title">Proyectos Destacados</div>
+        <div class="projects-grid">
+          <div class="proj-card cyan-card">
+            <div class="proj-name">Auditoría de Calidad de Datos</div>
+            <ul class="proj-bullets">
+              <li>SQL avanzado en sistema transaccional</li>
+              <li>Detección de duplicados, nulos e inconsistencias</li>
+              <li>Cuantificación de ingresos en riesgo</li>
+              <li>Dashboard de KPIs en Power BI</li>
+            </ul>
+          </div>
+          <div class="proj-card blue-card">
+            <div class="proj-name">Detección de Fraude</div>
+            <ul class="proj-bullets">
+              <li>Análisis de anomalías (Z-score, outliers)</li>
+              <li>Risk scoring por usuario en Python</li>
+              <li>Reglas de negocio en PostgreSQL</li>
+              <li>Dashboard ejecutivo en Power BI</li>
+            </ul>
+          </div>
+          <div class="proj-card purple-card">
+            <div class="proj-name">Rentabilidad y KPIs Comerciales</div>
+            <ul class="proj-bullets">
+              <li>KPIs: Revenue, Gross Profit, LTV, Margen</li>
+              <li>Segmentación de clientes por valor</li>
+              <li>EDA con Python (Pandas, Seaborn)</li>
+              <li>Dashboard ejecutivo Power BI</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Declaración -->
+      <div class="m-section">
+        <div class="m-title">Declaración Profesional</div>
+        <div class="declaration-box">
+          <p>
+            Tengo un propósito claro: <strong>convertir datos en decisiones de valor</strong>.
+            Vengo del mundo QA, lo que me da una perspectiva diferencial: entiendo que un análisis
+            es tan confiable como los datos que lo alimentan. Por eso trabajo desde el origen del
+            dato, asegurando integridad antes de construir cualquier insight.
+          </p>
+          <p class="declaration-tagline">
+            Trabajo con disciplina, enfoque y mentalidad de crecimiento continuo. El conocimiento aplicado es la base del progreso profesional.
+          </p>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<!-- ── Print Button ─────────────────────────────────────────── -->
+<button class="print-btn no-print" onclick="window.print()">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+    <polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/>
+    <rect x="6" y="14" width="12" height="8"/>
+  </svg>
+  Imprimir / Guardar PDF
+</button>
+
+</body>
+</html>
