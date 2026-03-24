@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 72px;
+  }
+
+  body {
+    @apply bg-[#0a0f1a] text-slate-100 antialiased;
+  }
+
+  ::selection {
+    background-color: rgba(34, 211, 238, 0.3);
+    color: #67e8f9;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(135deg, #22d3ee, #60a5fa, #a78bfa, #22d3ee);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 4s ease infinite;
+  }
+
+  .section-card {
+    @apply bg-[#111827] border border-[#1e293b] rounded-xl;
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.15);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 30px rgba(96, 165, 250, 0.15);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 30px rgba(167, 139, 250, 0.15);
+  }
+
+  .dot-grid {
+    background-image: radial-gradient(circle, #1e293b 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
