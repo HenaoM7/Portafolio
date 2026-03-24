@@ -76,7 +76,7 @@ export default function Hero() {
           className="font-heading font-bold text-5xl sm:text-6xl md:text-7xl leading-tight mb-4"
           style={{ animationDelay: '0.1s' }}
         >
-          <span className="text-slate-100">Miguel Angel </span>
+          <span className="text-slate-100">Miguel Ángel </span>
           <span className="gradient-text">Henao </span>
         </h1>
 
