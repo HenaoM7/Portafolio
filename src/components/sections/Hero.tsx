@@ -107,12 +107,13 @@ export default function Hero() {
             Ver Proyectos
           </Button>
           <Button
-            href="/cv-miguel-henao.html"
+            href="/cv-miguel-henao.pdf"
             variant="outline"
             size="lg"
+            download
           >
             <Download size={18} />
-            Ver CV
+            Descargar CV
           </Button>
           <Button href="#contacto" variant="ghost" size="lg">
             <Mail size={18} />
