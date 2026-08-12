@@ -1,37 +1,38 @@
 import { cn } from '@/lib/utils'
 
 interface SectionTitleProps {
+  kicker?: string
   title: string
   subtitle?: string
   align?: 'left' | 'center'
   className?: string
+  /** Page-top usage (one per page) must pass 'h1'. Defaults to 'h2' for section headings within a page that already has its own h1. */
+  as?: 'h1' | 'h2'
 }
 
 export default function SectionTitle({
+  kicker,
   title,
   subtitle,
-  align = 'center',
+  align = 'left',
   className,
+  as: Heading = 'h2',
 }: SectionTitleProps) {
   return (
-    <div
-      className={cn(
-        'mb-12',
-        align === 'center' ? 'text-center' : 'text-left',
-        className
+    <div className={cn('mb-10', align === 'center' ? 'text-center' : 'text-left', className)}>
+      {kicker && (
+        <p className="font-mono text-xs uppercase tracking-[0.14em] text-slate mb-3">{kicker}</p>
       )}
-    >
-      <h2 className="font-heading text-3xl md:text-4xl font-bold text-slate-100">
+      <Heading className="font-display text-3xl md:text-4xl font-semibold text-[#ece9e2] text-balance">
         {title}
-      </h2>
-      <div
-        className={cn(
-          'mt-3 h-1 w-12 rounded-full bg-gradient-to-r from-cyan-400 to-blue-400',
-          align === 'center' ? 'mx-auto' : ''
-        )}
-      />
+      </Heading>
       {subtitle && (
-        <p className="mt-4 text-slate-400 text-lg max-w-2xl mx-auto">
+        <p
+          className={cn(
+            'mt-4 text-[#9298a3] text-lg max-w-2xl',
+            align === 'center' ? 'mx-auto' : ''
+          )}
+        >
           {subtitle}
         </p>
       )}

@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "title": "Henao Intelligence — Práctica de Investigación de Datos",
+    "description": "Investigamos lo que sus datos no le están diciendo. Analítica de Calidad de Datos, Fraude y Riesgo, y Rentabilidad para empresas que ya no confían del todo en sus propias cifras."
+  },
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "method": "Método",
+    "caseStudies": "Casos de Estudio",
+    "about": "Sobre Mí",
+    "insights": "Insights",
+    "contact": "Contacto",
+    "menu": "Menú",
+    "close": "Cerrar",
+    "language": "Idioma"
+  },
+  "footer": {
+    "firmHeading": "Firma",
+    "workHeading": "Trabajo",
+    "startHeading": "Empezar",
+    "rights": "Todos los derechos reservados.",
+    "madeWith": "Construido con Next.js."
+  },
+  "cta": {
+    "startConversation": "Hablar sobre mi empresa",
+    "exploreServices": "Explorar Servicios",
+    "viewCaseStudies": "Ver Casos de Estudio",
+    "requestDiagnostic": "Solicitar Diagnóstico Inicial",
+    "viewRepository": "Ver Repositorio Técnico",
+    "repositoryPending": "Repositorio aún no publicado",
+    "exploreCaseStudy": "Explorar Caso de Estudio",
+    "backToCaseStudies": "Todos los Casos de Estudio",
+    "sendMessage": "Enviar Mensaje",
+    "readArticle": "Leer Artículo",
+    "allInsights": "Todos los Insights",
+    "downloadCv": "Descargar CV"
+  },
+  "badges": {
+    "simulated": "Caso de Negocio Simulado",
+    "personal": "Proyecto Personal",
+    "primary": "Caso de Estudio Principal",
+    "technical": "Caso de Estudio Técnico"
+  },
+  "caseStudy": {
+    "context": "Contexto de Negocio",
+    "contextPersonal": "Contexto del Proyecto",
+    "problem": "Problema",
+    "data": "Datos",
+    "methodology": "Método",
+    "evidence": "Evidencia",
+    "findings": "Hallazgos",
+    "relevance": "Relevancia de Negocio",
+    "relevancePersonal": "Relevancia Práctica",
+    "recommendations": "Recomendaciones",
+    "immediate": "Inmediato",
+    "mediumTerm": "Mediano plazo",
+    "longTerm": "Largo plazo",
+    "technicalEvidence": "Evidencia Técnica",
+    "technologies": "Tecnologías",
+    "period": "Período",
+    "visualAnalytics": "Análisis Visual",
+    "evidencePending": "Aún no hay evidencia visual confirmada para este proyecto — esta sección se deja intencionalmente vacía en lugar de completarse con un gráfico ilustrativo.",
+    "filterAll": "Todos",
+    "relatedTo": "Demuestra"
+  },
+  "categories": {
+    "data-quality": "Calidad de Datos",
+    "fraud-risk": "Fraude y Riesgo",
+    "profitability": "Rentabilidad",
+    "predictive-analytics": "Analítica Predictiva",
+    "computer-vision": "Machine Learning",
+    "public-interest": "Analítica de Interés Público"
+  },
+  "contactForm": {
+    "name": "Nombre",
+    "company": "Empresa",
+    "email": "Correo Corporativo",
+    "role": "Cargo",
+    "challenge": "Principal Desafío",
+    "service": "Servicio de Interés",
+    "serviceOptions": {
+      "dataQuality": "Calidad de Datos",
+      "fraudRisk": "Fraude y Riesgo",
+      "profitability": "Rentabilidad y Analítica de Negocio",
+      "unsure": "Aún no lo sé"
+    },
+    "message": "Mensaje",
+    "submit": "Enviar Mensaje"
+  },
+  "misc": {
+    "skipToContent": "Saltar al contenido",
+    "notFoundTitle": "Página no encontrada",
+    "notFoundBody": "La página que busca aún no existe en este idioma, o fue movida.",
+    "notFoundCta": "Volver al Inicio"
+  }
+}

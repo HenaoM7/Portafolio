@@ -5,52 +5,52 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 72px;
+    scroll-padding-top: 88px;
+    overflow-x: hidden;
   }
 
   body {
-    @apply bg-[#0a0f1a] text-slate-100 antialiased;
+    @apply bg-ink text-ink-border antialiased;
+    color: #ece9e2;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   ::selection {
-    background-color: rgba(34, 211, 238, 0.3);
-    color: #67e8f9;
+    background-color: rgba(214, 154, 78, 0.25);
+    color: #d69a4e;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  summary:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid #d69a4e;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
 @layer utilities {
-  .gradient-text {
-    background: linear-gradient(135deg, #22d3ee, #60a5fa, #a78bfa, #22d3ee);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientShift 4s ease infinite;
-  }
-
   .section-card {
-    @apply bg-[#111827] border border-[#1e293b] rounded-xl;
+    @apply bg-ink-surface border border-ink-border rounded;
   }
 
-  .glow-cyan {
-    box-shadow: 0 0 30px rgba(34, 211, 238, 0.15);
+  /* Sharp 2px corner radius per the design system — deliberately not rounded-lg everywhere. */
+  .card-edge {
+    border-radius: 2px;
   }
-
-  .glow-blue {
-    box-shadow: 0 0 30px rgba(96, 165, 250, 0.15);
-  }
-
-  .glow-purple {
-    box-shadow: 0 0 30px rgba(167, 139, 250, 0.15);
-  }
-
-  .dot-grid {
-    background-image: radial-gradient(circle, #1e293b 1px, transparent 1px);
-    background-size: 28px 28px;
-  }
-}
-
-@keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
 }

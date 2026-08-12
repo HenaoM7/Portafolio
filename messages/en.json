@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "title": "Henao Intelligence — Data Investigation Practice",
+    "description": "We investigate what your data isn't telling you. Data Quality, Fraud & Risk, and Profitability analytics for companies that no longer fully trust their own numbers."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "method": "Method",
+    "caseStudies": "Case Studies",
+    "about": "About",
+    "insights": "Insights",
+    "contact": "Contact",
+    "menu": "Menu",
+    "close": "Close",
+    "language": "Language"
+  },
+  "footer": {
+    "firmHeading": "Firm",
+    "workHeading": "Work",
+    "startHeading": "Start",
+    "rights": "All rights reserved.",
+    "madeWith": "Built with Next.js."
+  },
+  "cta": {
+    "startConversation": "Start a Conversation",
+    "exploreServices": "Explore Services",
+    "viewCaseStudies": "View Case Studies",
+    "requestDiagnostic": "Request an Initial Diagnostic",
+    "viewRepository": "View Technical Repository",
+    "repositoryPending": "Repository not yet published",
+    "exploreCaseStudy": "Explore Case Study",
+    "backToCaseStudies": "All Case Studies",
+    "sendMessage": "Send Message",
+    "readArticle": "Read Article",
+    "allInsights": "All Insights",
+    "downloadCv": "Download CV"
+  },
+  "badges": {
+    "simulated": "Simulated Business Case",
+    "personal": "Personal Project",
+    "primary": "Primary Case Study",
+    "technical": "Technical Case Study"
+  },
+  "caseStudy": {
+    "context": "Business Context",
+    "contextPersonal": "Project Context",
+    "problem": "Problem",
+    "data": "Data",
+    "methodology": "Method",
+    "evidence": "Evidence",
+    "findings": "Findings",
+    "relevance": "Business Relevance",
+    "relevancePersonal": "Practical Relevance",
+    "recommendations": "Recommendations",
+    "immediate": "Immediate",
+    "mediumTerm": "Medium-term",
+    "longTerm": "Long-term",
+    "technicalEvidence": "Technical Evidence",
+    "technologies": "Technologies",
+    "period": "Period",
+    "visualAnalytics": "Visual Analytics",
+    "evidencePending": "No confirmed visual evidence for this project yet — this section is intentionally left empty rather than filled with an illustrative chart.",
+    "filterAll": "All",
+    "relatedTo": "Demonstrates"
+  },
+  "categories": {
+    "data-quality": "Data Quality",
+    "fraud-risk": "Fraud & Risk",
+    "profitability": "Profitability",
+    "predictive-analytics": "Predictive Analytics",
+    "computer-vision": "Machine Learning",
+    "public-interest": "Public-Interest Analytics"
+  },
+  "contactForm": {
+    "name": "Name",
+    "company": "Company",
+    "email": "Business Email",
+    "role": "Role",
+    "challenge": "Main Challenge",
+    "service": "Service of Interest",
+    "serviceOptions": {
+      "dataQuality": "Data Quality",
+      "fraudRisk": "Fraud & Risk Analytics",
+      "profitability": "Profitability & Business Analytics",
+      "unsure": "Not sure yet"
+    },
+    "message": "Message",
+    "submit": "Send Message"
+  },
+  "misc": {
+    "skipToContent": "Skip to content",
+    "notFoundTitle": "Page not found",
+    "notFoundBody": "The page you're looking for doesn't exist in this language yet, or has moved.",
+    "notFoundCta": "Back to Home"
+  }
+}
