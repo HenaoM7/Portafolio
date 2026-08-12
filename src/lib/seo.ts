@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { routing } from '@/i18n/routing'
 
-const SITE_URL = 'https://henaointelligence.com'
+// TODO: switch to the henaointelligence.com custom domain once it's registered and connected in Vercel.
+const SITE_URL = 'https://portafolio-ochre-gamma.vercel.app'
 
 /**
  * Builds canonical + hreflang alternates for a route that exists identically
