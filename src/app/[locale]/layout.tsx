@@ -7,6 +7,7 @@ import { routing } from '@/i18n/routing'
 import { buildAlternates, SITE_URL } from '@/lib/seo'
 import NavBar from '@/components/layout/NavBar'
 import Footer from '@/components/layout/Footer'
+import WhatsAppBubble from '@/components/layout/WhatsAppBubble'
 import '../globals.css'
 
 const fraunces = Fraunces({
@@ -86,6 +87,7 @@ export default async function LocaleLayout({
           <NavBar />
           <main id="main-content">{children}</main>
           <Footer />
+          <WhatsAppBubble />
         </NextIntlClientProvider>
       </body>
     </html>

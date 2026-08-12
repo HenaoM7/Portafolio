@@ -1,10 +1,11 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
+import { FileText, Download } from 'lucide-react'
 import FadeInSection from '@/components/ui/FadeInSection'
 import SectionTitle from '@/components/ui/SectionTitle'
 import Button from '@/components/ui/Button'
 import JourneyTimeline from '@/components/visuals/JourneyTimeline'
-import { aboutContent } from '@/content/pages/about'
+import { aboutContent, CV_PATH } from '@/content/pages/about'
 import { education } from '@/data/education'
 import { buildAlternates } from '@/lib/seo'
 import type { Locale } from '@/content/types'
@@ -32,8 +33,9 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const title = locale === 'es' ? 'Sobre Mí' : 'About'
-  const description = aboutContent[locale as Locale].paragraphs[0]
+  const c = aboutContent[locale as Locale]
+  const title = c.title
+  const description = c.companyParagraphs[0]
   return {
     title,
     description,
@@ -65,17 +67,14 @@ export default async function AboutPage({
   return (
     <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-24">
       <FadeInSection>
-        <SectionTitle
-          as="h1"
-          kicker={loc === 'es' ? 'Sobre Mí' : 'About'}
-          title="Miguel Ángel Henao Cañas"
-        />
+        <SectionTitle as="h1" kicker={c.kicker} title={c.title} />
       </FadeInSection>
 
-      <div className="grid lg:grid-cols-[1fr_320px] gap-x-16 gap-y-12 mb-16">
+      {/* Company */}
+      <div className="grid lg:grid-cols-[1fr_320px] gap-x-16 gap-y-12 mb-20">
         <div>
           <div className="max-w-2xl space-y-6">
-            {c.paragraphs.map((p, idx) => (
+            {c.companyParagraphs.map((p, idx) => (
               <FadeInSection key={idx} delay={idx * 80}>
                 <p className="text-[#c9c5bb] leading-relaxed text-lg">{p}</p>
               </FadeInSection>
@@ -98,6 +97,34 @@ export default async function AboutPage({
         </div>
       </div>
 
+      {/* Founder */}
+      <FadeInSection>
+        <section className="border-t border-ink-border pt-10 mb-20">
+          <span className="font-mono text-xs uppercase tracking-wide text-slate">{c.founderKicker}</span>
+          <div className="mt-4 section-card card-edge p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
+            <div className="flex-1">
+              <h2 className="font-display text-2xl font-semibold text-[#ece9e2]">{c.founderName}</h2>
+              <p className="font-mono text-xs uppercase tracking-wide text-brass mt-1 mb-4">{c.founderRole}</p>
+              <p className="text-[#9298a3] leading-relaxed max-w-2xl">{c.founderBio}</p>
+            </div>
+            <div className="flex sm:flex-row flex-col gap-3 shrink-0">
+              <Button href={CV_PATH} external variant="secondary">
+                <FileText size={16} /> {c.founderCta.view}
+              </Button>
+              <a
+                href={CV_PATH}
+                download="Miguel_Henao_CV_DataAnalyst_2026.pdf"
+                aria-label={c.founderCta.download}
+                className="inline-flex items-center gap-2 px-6 py-3 card-edge bg-brass text-ink font-semibold hover:bg-brass/90 hover:-translate-y-0.5 transition-[background-color,transform] duration-200"
+              >
+                <Download size={16} /> {c.founderCta.download}
+              </a>
+            </div>
+          </div>
+        </section>
+      </FadeInSection>
+
+      {/* Credentials */}
       <FadeInSection>
         <section className="border-t border-ink-border pt-10">
           <h2 className="font-display text-2xl font-semibold mb-2">{c.credentialsTitle}</h2>

@@ -29,10 +29,10 @@ export default function SignalField({ locale }: { locale: 'en' | 'es' }) {
               r={isAnomaly ? 5 : 2.6}
               fill={isAnomaly ? '#d69a4e' : '#7fa0c2'}
               opacity={isAnomaly ? 1 : 0.55}
-              initial={shouldReduceMotion ? undefined : { opacity: 0, cy: 90 }}
-              whileInView={shouldReduceMotion ? undefined : { opacity: isAnomaly ? 1 : 0.55, cy: y }}
+              initial={{ opacity: shouldReduceMotion ? (isAnomaly ? 1 : 0.55) : 0, cy: shouldReduceMotion ? y : 90 }}
+              whileInView={{ opacity: isAnomaly ? 1 : 0.55, cy: y }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.5, delay: i * 0.03, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: shouldReduceMotion ? 0 : i * 0.03, ease: [0.22, 1, 0.36, 1] }}
             />
           )
         })}

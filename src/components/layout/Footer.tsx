@@ -1,16 +1,26 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, getLocale } from 'next-intl/server'
 import { Github, Linkedin, Mail } from 'lucide-react'
+import { SiWhatsapp } from 'react-icons/si'
 import { Link } from '@/i18n/navigation'
-import { CONTACT_EMAIL, LINKEDIN_URL, GITHUB_URL } from '@/content/pages/contact'
+import { CONTACT_EMAIL, LINKEDIN_URL, GITHUB_URL, WHATSAPP_URL } from '@/content/pages/contact'
 
 export default async function Footer() {
   const t = await getTranslations('footer')
   const tNav = await getTranslations('nav')
   const tCta = await getTranslations('cta')
+  const locale = await getLocale()
 
   return (
     <footer className="bg-ink border-t border-ink-border">
-      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-14 grid grid-cols-1 sm:grid-cols-3 gap-10">
+      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 pt-14">
+        <p className="font-display text-lg font-semibold text-[#ece9e2]">
+          Henao <span className="text-brass">Intelligence</span>
+        </p>
+        <p className="text-sm text-[#9298a3] mt-1.5 max-w-md">
+          {locale === 'es' ? 'Consultoría en Tecnología e Inteligencia de Datos' : 'Technology & Data Intelligence Consulting'}
+        </p>
+      </div>
+      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-14 grid grid-cols-1 sm:grid-cols-3 gap-10">
         <div>
           <p className="font-mono text-xs uppercase tracking-wide text-slate mb-4">
             {t('firmHeading')}
@@ -39,6 +49,11 @@ export default async function Footer() {
             <li>
               <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-[#ece9e2] flex items-center gap-1.5">
                 <Mail size={13} /> {CONTACT_EMAIL}
+              </a>
+            </li>
+            <li>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[#ece9e2] flex items-center gap-1.5">
+                <SiWhatsapp size={13} /> WhatsApp
               </a>
             </li>
           </ul>

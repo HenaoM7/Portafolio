@@ -1,38 +1,63 @@
 import type { Bilingual } from '../types'
 
 export interface AboutPageContent {
-  paragraphs: string[]
+  kicker: string
+  title: string
+  companyParagraphs: string[]
   evolutionTitle: string
   evolutionBody: string
+  founderKicker: string
+  founderName: string
+  founderRole: string
+  founderBio: string
+  founderCta: { view: string; download: string }
   credentialsTitle: string
   credentialsBody: string
 }
 
 export const aboutContent: Bilingual<AboutPageContent> = {
   en: {
-    paragraphs: [
-      "I'm Miguel Ángel Henao Cañas. I work at the intersection of data quality, business intelligence, and applied analytics — currently as a Data Quality Analyst / QA Engineer at Quipux, where I validate millions of transactional records in production systems, and independently, building the evidence-based investigations behind this site.",
-      "The two aren't separate tracks. Quality assurance taught me to ask whether a number can be trusted before doing anything else with it — completeness, uniqueness, consistency, referential integrity, checked before conclusions get drawn. Most of the failures I've found in data analysis, mine included, trace back to skipping that step.",
-      "I'm completing a degree in Systems Technology (final semester, expected 2026), alongside more than 30 certifications in data science, statistics, machine learning, and business intelligence. Three investigations — data quality, fraud and risk, and profitability — form the evidence behind the services this site offers; several more technical projects, in predictive modeling and applied machine learning, sit alongside them as capability evidence.",
+    kicker: 'About',
+    title: 'Henao Intelligence',
+    companyParagraphs: [
+      'Henao Intelligence is a technology and data intelligence consulting practice. We investigate the business problems that live inside data — quality gaps, fraud exposure, and lost profitability — for companies that no longer fully trust their own numbers.',
+      "Our approach is consultive, not transactional. Every engagement starts with a business question, not a dashboard build: we diagnose the data, investigate the pattern, turn what we find into evidence, and hand over a decision — not a slide deck of charts. That sequence is the practice's method, applied the same way whether the question is about data quality, fraud, or profitability.",
+      'We combine data analytics, applied statistics, machine learning, and software quality assurance discipline — the last one is what sets the approach apart. Before trusting a number, we check it. That habit shapes how every investigation is run.',
     ],
-    evolutionTitle: 'Where this is headed',
+    evolutionTitle: 'Where the practice is headed',
     evolutionBody:
-      'Deeper into data engineering and applied machine learning, with quantum computing as a longer-range research interest — not a service I offer today, but a direction I\'m building toward.',
+      "Deeper into data engineering and applied machine learning, with quantum computing as a longer-range research interest — not a service offered today, but a direction the practice is building toward.",
+    founderKicker: 'Founder',
+    founderName: 'Miguel Ángel Henao Cañas',
+    founderRole: 'Founder & Lead Data Professional',
+    founderBio:
+      "Miguel leads Henao Intelligence's investigations. He currently works as a Data Quality Analyst / QA Engineer at Quipux, validating millions of transactional records in production systems — the background that shaped the practice's evidence-first method. He's completing a degree in Systems Technology (final semester, expected 2026), alongside 30+ certifications in data science, statistics, machine learning, and business intelligence.",
+    founderCta: { view: 'View CV', download: 'Download CV' },
     credentialsTitle: 'Credentials',
     credentialsBody:
       '30+ certifications across Data & BI, Machine Learning & AI, Programming, and Security — from Platzi, SENA, and HackerRank.',
   },
   es: {
-    paragraphs: [
-      'Soy Miguel Ángel Henao Cañas. Trabajo en la intersección entre calidad de datos, inteligencia de negocio y analítica aplicada — actualmente como Analista de Calidad de Datos / Ingeniero QA en Quipux, donde valido millones de registros transaccionales en sistemas de producción, y de forma independiente, construyendo las investigaciones basadas en evidencia detrás de este sitio.',
-      'Los dos no son caminos separados. El aseguramiento de calidad me enseñó a preguntar si una cifra es confiable antes de hacer cualquier otra cosa con ella — completitud, unicidad, consistencia, integridad referencial, verificadas antes de sacar conclusiones. La mayoría de las fallas que he encontrado en análisis de datos, incluyendo los míos, se remontan a saltarse ese paso.',
-      'Estoy terminando una Tecnología en Sistemas (último semestre, graduación estimada en 2026), junto con más de 30 certificaciones en ciencia de datos, estadística, machine learning e inteligencia de negocio. Tres investigaciones — calidad de datos, fraude y riesgo, y rentabilidad — son la evidencia detrás de los servicios de este sitio; varios proyectos técnicos adicionales, en modelado predictivo y machine learning aplicado, las acompañan como evidencia de capacidad.',
+    kicker: 'Sobre Nosotros',
+    title: 'Henao Intelligence',
+    companyParagraphs: [
+      'Henao Intelligence es una práctica de consultoría en tecnología e inteligencia de datos. Investigamos los problemas de negocio que viven dentro de los datos — vacíos de calidad, exposición al fraude y utilidad perdida — para empresas que ya no confían del todo en sus propias cifras.',
+      'Nuestro enfoque es consultivo, no transaccional. Cada proyecto empieza con una pregunta de negocio, no con la construcción de un dashboard: diagnosticamos los datos, investigamos el patrón, convertimos lo que encontramos en evidencia, y entregamos una decisión — no una presentación de gráficos. Esa secuencia es el método de la práctica, aplicado de la misma forma sin importar si la pregunta es sobre calidad de datos, fraude o rentabilidad.',
+      'Combinamos analítica de datos, estadística aplicada, machine learning y la disciplina del aseguramiento de calidad de software — esta última es lo que diferencia el enfoque. Antes de confiar en una cifra, la verificamos. Ese hábito define cómo se ejecuta cada investigación.',
     ],
-    evolutionTitle: 'Hacia dónde va esto',
+    evolutionTitle: 'Hacia dónde va la práctica',
     evolutionBody:
-      'Más profundidad en ingeniería de datos y machine learning aplicado, con la computación cuántica como interés de investigación de largo plazo — no un servicio que ofrezca hoy, sino una dirección hacia la que estoy construyendo.',
+      'Más profundidad en ingeniería de datos y machine learning aplicado, con la computación cuántica como interés de investigación de largo plazo — no un servicio que se ofrezca hoy, sino una dirección hacia la que la práctica está construyendo.',
+    founderKicker: 'Fundador',
+    founderName: 'Miguel Ángel Henao Cañas',
+    founderRole: 'Fundador y Líder de Datos',
+    founderBio:
+      'Miguel lidera las investigaciones de Henao Intelligence. Actualmente trabaja como Analista de Calidad de Datos / Ingeniero QA en Quipux, validando millones de registros transaccionales en sistemas de producción — la experiencia que dio forma al método de la práctica centrado en evidencia. Está terminando una Tecnología en Sistemas (último semestre, graduación estimada en 2026), junto con más de 30 certificaciones en ciencia de datos, estadística, machine learning e inteligencia de negocio.',
+    founderCta: { view: 'Ver CV', download: 'Descargar CV' },
     credentialsTitle: 'Credenciales',
     credentialsBody:
       'Más de 30 certificaciones en Datos y BI, Machine Learning e IA, Programación, y Seguridad — de Platzi, SENA y HackerRank.',
   },
 }
+
+export const CV_PATH = '/CV/Miguel_Henao_CV_DataAnalyst_2026.pdf'

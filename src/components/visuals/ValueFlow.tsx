@@ -33,10 +33,10 @@ export default function ValueFlow({ locale }: { locale: 'en' | 'es' }) {
               strokeWidth={s.width}
               strokeLinecap="round"
               opacity={s.opacity}
-              initial={shouldReduceMotion ? undefined : { pathLength: 0 }}
-              whileInView={shouldReduceMotion ? undefined : { pathLength: 1 }}
+              initial={{ pathLength: shouldReduceMotion ? 1 : 0 }}
+              whileInView={{ pathLength: 1 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.9, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.9, delay: shouldReduceMotion ? 0 : i * 0.08, ease: [0.22, 1, 0.36, 1] }}
             />
           )
         })}

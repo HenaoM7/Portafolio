@@ -47,7 +47,9 @@ function randomInSphere(radius: number): THREE.Vector3 {
 interface FieldData {
   corePositions: Float32Array
   anomalyPositions: Float32Array
+  anomalyVectors: THREE.Vector3[]
   linePositions: Float32Array
+  lineLengths: number[]
 }
 
 function buildField(): FieldData {
@@ -72,18 +74,21 @@ function buildField(): FieldData {
 
   // Connections: link each core point to its nearest few neighbors within a distance threshold.
   const segments: number[] = []
+  const lineLengths: number[] = []
   for (let i = 0; i < core.length; i++) {
     let linked = 0
     for (let j = i + 1; j < core.length && linked < 2; j++) {
-      if (core[i].distanceTo(core[j]) < CONNECTION_DISTANCE) {
+      const d = core[i].distanceTo(core[j])
+      if (d < CONNECTION_DISTANCE) {
         segments.push(core[i].x, core[i].y, core[i].z, core[j].x, core[j].y, core[j].z)
+        lineLengths.push(d, d)
         linked++
       }
     }
   }
   const linePositions = new Float32Array(segments)
 
-  return { corePositions, anomalyPositions, linePositions }
+  return { corePositions, anomalyPositions, anomalyVectors: anomalies, linePositions, lineLengths }
 }
 
 interface DataTopologySceneProps {
@@ -92,13 +97,23 @@ interface DataTopologySceneProps {
 
 export default function DataTopologyScene({ reducedMotion }: DataTopologySceneProps) {
   const groupRef = useRef<THREE.Group>(null)
-  const { corePositions, anomalyPositions, linePositions } = useMemo(buildField, [])
+  const lineMaterialRef = useRef<THREE.LineBasicMaterial>(null)
+  const coreMaterialRef = useRef<THREE.PointsMaterial>(null)
+  const anomalyMaterialRef = useRef<THREE.PointsMaterial>(null)
+  const { corePositions, anomalyPositions, anomalyVectors, linePositions } = useMemo(buildField, [])
   const dotTexture = useDotTexture()
-  const { viewport } = useThree()
+  const { viewport, camera } = useThree()
   const pointerTarget = useRef({ x: 0, y: 0 })
+  const proximityGlow = useRef(0)
+  const elapsed = useRef(0)
+
+  // Scratch objects reused every frame — avoid per-frame allocation.
+  const worldPos = useMemo(() => new THREE.Vector3(), [])
+  const ndc = useMemo(() => new THREE.Vector3(), [])
 
   useFrame((state, delta) => {
     if (!groupRef.current) return
+    elapsed.current += delta
 
     if (!reducedMotion) {
       // Level 1 — ambient: slow constant drift.
@@ -110,6 +125,31 @@ export default function DataTopologyScene({ reducedMotion }: DataTopologyScenePr
     pointerTarget.current.y = THREE.MathUtils.lerp(pointerTarget.current.y, state.pointer.y, 0.02)
     groupRef.current.rotation.x = -pointerTarget.current.y * 0.12
     groupRef.current.rotation.z = pointerTarget.current.x * 0.06
+
+    // Complexity → Investigation: the network reveals itself over the first few seconds
+    // rather than appearing fully formed — connections resolve after the points do.
+    const pointsReveal = THREE.MathUtils.smoothstep(elapsed.current, 0.2, 1.6)
+    const linesReveal = THREE.MathUtils.smoothstep(elapsed.current, 1.0, 3.2)
+    if (coreMaterialRef.current) coreMaterialRef.current.opacity = pointsReveal * 0.85
+    if (lineMaterialRef.current) lineMaterialRef.current.opacity = linesReveal * 0.16
+
+    // Investigation on hover: find how close the pointer ray is to any anomaly, in
+    // screen space (NDC) — cheap since there are only 4 anomalies to check.
+    let minDist = Infinity
+    for (const p of anomalyVectors) {
+      worldPos.copy(p).applyMatrix4(groupRef.current.matrixWorld)
+      ndc.copy(worldPos).project(camera)
+      const d = Math.hypot(ndc.x - state.pointer.x, ndc.y - state.pointer.y)
+      if (d < minDist) minDist = d
+    }
+    const targetGlow = reducedMotion ? 0 : THREE.MathUtils.clamp(1 - minDist / 0.22, 0, 1)
+    proximityGlow.current = THREE.MathUtils.lerp(proximityGlow.current, targetGlow, 0.08)
+
+    if (anomalyMaterialRef.current) {
+      const breathe = reducedMotion ? 0 : Math.sin(elapsed.current * 1.4) * 0.015
+      anomalyMaterialRef.current.opacity = pointsReveal
+      anomalyMaterialRef.current.size = 0.11 + breathe + proximityGlow.current * 0.09
+    }
   })
 
   return (
@@ -118,7 +158,7 @@ export default function DataTopologyScene({ reducedMotion }: DataTopologyScenePr
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[linePositions, 3]} />
         </bufferGeometry>
-        <lineBasicMaterial color={SLATE} transparent opacity={0.16} />
+        <lineBasicMaterial ref={lineMaterialRef} color={SLATE} transparent opacity={0} />
       </lineSegments>
 
       <points>
@@ -126,11 +166,12 @@ export default function DataTopologyScene({ reducedMotion }: DataTopologyScenePr
           <bufferAttribute attach="attributes-position" args={[corePositions, 3]} />
         </bufferGeometry>
         <pointsMaterial
+          ref={coreMaterialRef}
           map={dotTexture}
           color={SLATE}
           size={0.065}
           transparent
-          opacity={0.85}
+          opacity={0}
           depthWrite={false}
           sizeAttenuation
         />
@@ -141,11 +182,12 @@ export default function DataTopologyScene({ reducedMotion }: DataTopologyScenePr
           <bufferAttribute attach="attributes-position" args={[anomalyPositions, 3]} />
         </bufferGeometry>
         <pointsMaterial
+          ref={anomalyMaterialRef}
           map={dotTexture}
           color={BRASS}
           size={0.11}
           transparent
-          opacity={1}
+          opacity={0}
           depthWrite={false}
           sizeAttenuation
         />

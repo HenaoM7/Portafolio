@@ -18,9 +18,11 @@ export default async function Hero() {
         aria-hidden="true"
       />
       <HeroContent
+        brand={c.heroBrand}
         kicker={c.heroKicker}
         title={c.heroTitle}
         subtitle={c.heroSubtitle}
+        pillars={c.heroPillars}
         primaryCta={tCta('startConversation')}
         secondaryCta={tCta('viewCaseStudies')}
       />

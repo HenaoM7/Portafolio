@@ -45,8 +45,8 @@ export default async function CaseStudiesPage({
         />
         <p className="text-lg text-[#9298a3] max-w-2xl leading-relaxed -mt-4 mb-14">
           {loc === 'es'
-            ? 'Tres casos de negocio simulados demuestran los tres servicios principales. Cinco proyectos técnicos personales demuestran capacidad de ingeniería y rigor metodológico. Cada tarjeta muestra su clasificación de credibilidad de forma visible — nunca en letra pequeña.'
-            : 'Three simulated business cases demonstrate the three core services. Five personal technical projects demonstrate engineering capability and methodological rigor. Every card shows its credibility classification visibly — never in fine print.'}
+            ? 'Así investigamos problemas complejos en Henao Intelligence. Tres casos de negocio simulados demuestran los tres servicios principales. Cinco proyectos técnicos personales demuestran capacidad de ingeniería y rigor metodológico. Cada tarjeta muestra su clasificación de credibilidad de forma visible — nunca en letra pequeña.'
+            : "This is how Henao Intelligence investigates complex problems. Three simulated business cases demonstrate the three core services. Five personal technical projects demonstrate engineering capability and methodological rigor. Every card shows its credibility classification visibly — never in fine print."}
         </p>
       </FadeInSection>
       <CaseStudiesGrid caseStudies={caseStudies} locale={loc} />

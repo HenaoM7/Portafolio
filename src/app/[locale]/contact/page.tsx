@@ -1,10 +1,11 @@
 import { setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { Mail, Linkedin, MapPin } from 'lucide-react'
+import { SiWhatsapp } from 'react-icons/si'
 import FadeInSection from '@/components/ui/FadeInSection'
 import SectionTitle from '@/components/ui/SectionTitle'
 import ContactForm from '@/components/sections/ContactForm'
-import { contactContent, CONTACT_EMAIL, LINKEDIN_URL } from '@/content/pages/contact'
+import { contactContent, CONTACT_EMAIL, LINKEDIN_URL, WHATSAPP_URL } from '@/content/pages/contact'
 import { buildAlternates } from '@/lib/seo'
 import type { Locale } from '@/content/types'
 
@@ -50,6 +51,9 @@ export default async function ContactPage({
           <div className="flex flex-col gap-4 lg:w-64">
             <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-2.5 text-sm text-[#c9c5bb] hover:text-brass transition-colors">
               <Mail size={16} className="text-slate shrink-0" /> {CONTACT_EMAIL}
+            </a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 text-sm text-[#c9c5bb] hover:text-brass transition-colors">
+              <SiWhatsapp size={16} className="text-slate shrink-0" /> WhatsApp
             </a>
             <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 text-sm text-[#c9c5bb] hover:text-brass transition-colors">
               <Linkedin size={16} className="text-slate shrink-0" /> linkedin.com/in/henaom777

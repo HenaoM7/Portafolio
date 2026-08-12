@@ -1,9 +1,11 @@
 import type { Bilingual } from '../types'
 
 export interface HomeContent {
+  heroBrand: string
   heroKicker: string
   heroTitle: string
   heroSubtitle: string
+  heroPillars: string
   problemTitle: string
   problemItems: string[]
   differentiatorTitle: string
@@ -16,10 +18,12 @@ export interface HomeContent {
 
 export const homeContent: Bilingual<HomeContent> = {
   en: {
-    heroKicker: 'Data Quality · Fraud & Risk · Profitability',
+    heroBrand: 'Henao Intelligence',
+    heroKicker: 'Technology & Data Intelligence Consulting',
     heroTitle: "We investigate what your data isn't telling you.",
     heroSubtitle:
       'Henao Intelligence is a data investigation practice for companies that no longer fully trust their own numbers. We diagnose data quality, size fraud exposure, and find where profit is actually made or lost — then hand you evidence, not a dashboard.',
+    heroPillars: 'Data Quality · Fraud & Risk · Profitability',
     problemTitle: 'What is the cost of not trusting your data?',
     problemItems: [
       "Reports from two departments that don't agree",
@@ -39,10 +43,12 @@ export const homeContent: Bilingual<HomeContent> = {
     finalCtaLocation: 'Medellín, Colombia (GMT-5) — working with companies across Latin America and internationally.',
   },
   es: {
-    heroKicker: 'Calidad de Datos · Fraude y Riesgo · Rentabilidad',
+    heroBrand: 'Henao Intelligence',
+    heroKicker: 'Consultoría en Tecnología e Inteligencia de Datos',
     heroTitle: 'Investigamos lo que sus datos no le están diciendo.',
     heroSubtitle:
       'Henao Intelligence es una práctica de investigación de datos para empresas que ya no confían del todo en sus propias cifras. Diagnosticamos la calidad del dato, dimensionamos la exposición al fraude y encontramos dónde se genera o se pierde realmente la utilidad — y entregamos evidencia, no un dashboard.',
+    heroPillars: 'Calidad de Datos · Fraude y Riesgo · Rentabilidad',
     problemTitle: '¿Qué le está costando no confiar en sus datos?',
     problemItems: [
       'Reportes de dos áreas que no coinciden entre sí',

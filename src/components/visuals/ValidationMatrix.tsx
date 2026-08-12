@@ -27,10 +27,10 @@ export default function ValidationMatrix({ locale }: { locale: 'en' | 'es' }) {
           return (
             <motion.div
               key={cell.key}
-              initial={shouldReduceMotion ? undefined : { opacity: 0, scale: 0.6 }}
-              whileInView={shouldReduceMotion ? undefined : { opacity: 1, scale: 1 }}
+              initial={{ opacity: shouldReduceMotion ? 1 : 0, scale: shouldReduceMotion ? 1 : 0.6 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.3, delay: i * 0.012, ease: 'easeOut' }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.3, delay: shouldReduceMotion ? 0 : i * 0.012, ease: 'easeOut' }}
               className={
                 flagged
                   ? 'aspect-square rounded-[1px] bg-brass border border-brass'

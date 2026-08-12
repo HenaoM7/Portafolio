@@ -35,10 +35,10 @@ export default function JourneyTimeline({ locale }: { locale: 'en' | 'es' }) {
           <motion.div
             key={node.label}
             className="relative"
-            initial={shouldReduceMotion ? undefined : { opacity: 0, x: -8 }}
-            whileInView={shouldReduceMotion ? undefined : { opacity: 1, x: 0 }}
+            initial={{ opacity: shouldReduceMotion ? 1 : 0, x: shouldReduceMotion ? 0 : -8 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: shouldReduceMotion ? 0 : i * 0.1, ease: 'easeOut' }}
           >
             <span
               className={
