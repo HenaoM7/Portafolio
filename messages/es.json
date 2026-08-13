@@ -1,14 +1,14 @@
 {
   "metadata": {
     "title": "Henao Intelligence — Consultoría en Tecnología e Inteligencia de Datos",
-    "description": "Investigamos lo que sus datos no le están diciendo. Analítica de Calidad de Datos, Fraude y Riesgo, y Rentabilidad para empresas que ya no confían del todo en sus propias cifras."
+    "description": "Investigamos lo que sus datos no le están diciendo. Consultoría en datos e inteligencia tecnológica — comprobada en calidad de datos, fraude y rentabilidad, construida para lo que el problema realmente necesite."
   },
   "nav": {
     "home": "Inicio",
     "services": "Servicios",
     "method": "Método",
     "caseStudies": "Casos de Estudio",
-    "about": "Sobre Mí",
+    "about": "Sobre Nosotros",
     "insights": "Insights",
     "contact": "Contacto",
     "menu": "Menú",
@@ -33,8 +33,7 @@
     "backToCaseStudies": "Todos los Casos de Estudio",
     "sendMessage": "Enviar Mensaje",
     "readArticle": "Leer Artículo",
-    "allInsights": "Todos los Insights",
-    "downloadCv": "Descargar CV"
+    "allInsights": "Todos los Insights"
   },
   "badges": {
     "simulated": "Caso de Negocio Simulado",

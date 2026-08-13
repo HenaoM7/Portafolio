@@ -22,8 +22,8 @@ export const homeContent: Bilingual<HomeContent> = {
     heroKicker: 'Technology & Data Intelligence Consulting',
     heroTitle: "We investigate what your data isn't telling you.",
     heroSubtitle:
-      'Henao Intelligence is a data investigation practice for companies that no longer fully trust their own numbers. We diagnose data quality, size fraud exposure, and find where profit is actually made or lost — then hand you evidence, not a dashboard.',
-    heroPillars: 'Data Quality · Fraud & Risk · Profitability',
+      "Henao Intelligence is a data and technology intelligence consultancy for companies that no longer fully trust their own numbers. We investigate the problem first — data quality, fraud, profitability, or whatever else turns out to be going on — then hand you evidence, not a dashboard.",
+    heroPillars: 'Proven in: Data Quality · Fraud & Risk · Profitability',
     problemTitle: 'What is the cost of not trusting your data?',
     problemItems: [
       "Reports from two departments that don't agree",
@@ -47,8 +47,8 @@ export const homeContent: Bilingual<HomeContent> = {
     heroKicker: 'Consultoría en Tecnología e Inteligencia de Datos',
     heroTitle: 'Investigamos lo que sus datos no le están diciendo.',
     heroSubtitle:
-      'Henao Intelligence es una práctica de investigación de datos para empresas que ya no confían del todo en sus propias cifras. Diagnosticamos la calidad del dato, dimensionamos la exposición al fraude y encontramos dónde se genera o se pierde realmente la utilidad — y entregamos evidencia, no un dashboard.',
-    heroPillars: 'Calidad de Datos · Fraude y Riesgo · Rentabilidad',
+      'Henao Intelligence es una consultoría en datos e inteligencia tecnológica para empresas que ya no confían del todo en sus propias cifras. Investigamos primero el problema — calidad de datos, fraude, rentabilidad, o lo que realmente esté ocurriendo — y entregamos evidencia, no un dashboard.',
+    heroPillars: 'Comprobado en: Calidad de Datos · Fraude y Riesgo · Rentabilidad',
     problemTitle: '¿Qué le está costando no confiar en sus datos?',
     problemItems: [
       'Reportes de dos áreas que no coinciden entre sí',

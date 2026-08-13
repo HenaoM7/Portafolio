@@ -11,20 +11,38 @@ export interface ServicePillarContent {
   caseStudySlug: string
 }
 
+export interface CapabilityGroup {
+  title: string
+  items: string[]
+}
+
+export interface SolutionExample {
+  clientProblem: string
+  path: string
+  solution: string
+}
+
 export interface ServicesPageContent {
   intro: string
+  problemsKicker: string
+  problemsIntro: string
   pillars: ServicePillarContent[]
+  capabilitiesKicker: string
   capabilitiesTitle: string
-  dataEngGroupTitle: string
-  dataEngItems: string[]
-  aiMlGroupTitle: string
-  aiMlItems: string[]
+  capabilitiesIntro: string
+  capabilityGroups: CapabilityGroup[]
+  flexibilityKicker: string
+  flexibilityTitle: string
+  flexibilityIntro: string
+  examples: SolutionExample[]
 }
 
 export const servicesContent: Bilingual<ServicesPageContent> = {
   en: {
     intro:
-      'Three questions come up again and again in companies with real transactional complexity: can I trust this number, is something wrong happening inside this volume, and where is this business actually making money. Everything here exists to answer one of those three — nothing is sold as a fourth, independent offering.',
+      "Henao Intelligence is a data and technology intelligence consultancy. We investigate the business problem first, then determine what to build — a data quality fix, a fraud model, an automated pipeline, a machine learning system — whatever the evidence says the problem actually needs. The three areas below are where we've proven that method most thoroughly. They're examples of what we investigate, not the limit of what we build.",
+    problemsKicker: 'Business Problems We Investigate',
+    problemsIntro: 'Three examples, each backed by a full case study.',
     pillars: [
       {
         slug: 'data-quality',
@@ -68,24 +86,51 @@ export const servicesContent: Bilingual<ServicesPageContent> = {
         caseStudySlug: 'profitability-analytics',
       },
     ],
-    capabilitiesTitle: 'The capabilities behind the three pillars',
-    dataEngGroupTitle: 'Data & Engineering',
-    dataEngItems: [
-      'SQL / Python Analytics — the extraction and validation layer under all three pillars',
-      'Data Governance & Validation — sustains Data Quality findings past the initial audit',
-      "Process Analytics — supports Profitability's margin and process investigations",
-      'Data Engineering — pipeline work when a diagnostic becomes ongoing monitoring',
+    capabilitiesKicker: 'What We Build With',
+    capabilitiesTitle: 'Solution Capabilities',
+    capabilitiesIntro:
+      "Technology is the outcome of an investigation, not the starting point — we don't sell Python or Power BI in isolation. Once the diagnosis is done, this is what we build with.",
+    capabilityGroups: [
+      {
+        title: 'Data & Engineering',
+        items: ['Data Analytics', 'Data Engineering', 'Data Architecture', 'Data Quality Engineering', 'SQL / Python'],
+      },
+      {
+        title: 'Intelligence & Automation',
+        items: ['Data Science', 'Machine Learning', 'Artificial Intelligence', 'Predictive Modeling', 'Automation'],
+      },
+      {
+        title: 'Decision Support',
+        items: ['Business Intelligence', 'Power BI', 'Statistical Analysis', 'Dashboarding & Reporting'],
+      },
     ],
-    aiMlGroupTitle: 'AI, ML & Reporting',
-    aiMlItems: [
-      'Machine Learning / Predictive Analytics — the modeling layer inside Fraud & Risk and Profitability',
-      'Business Intelligence / Power BI — the executive-visualization layer common to all three case studies',
-      "Dashboarding & Automation — how a diagnostic's findings stay visible after delivery",
+    flexibilityKicker: 'Beyond the Three',
+    flexibilityTitle: 'How a Problem Becomes a Solution',
+    flexibilityIntro:
+      "The method doesn't change based on the problem — only the destination does. These are illustrative of how an investigation resolves into a solution; they describe the method's range, not completed engagements.",
+    examples: [
+      {
+        clientProblem: '"Our reports don\'t match."',
+        path: 'Discover → Diagnose → Analyze → Evidence',
+        solution: 'Often resolves into Data Quality + Data Engineering + Automation — fixing the root inconsistency and keeping it fixed.',
+      },
+      {
+        clientProblem: '"We\'re losing hours to manual processes."',
+        path: 'Discover → Diagnose → Analyze → Evidence',
+        solution: 'Often resolves into Process Analysis + Automation + Monitoring — replacing repetition with a system that watches itself.',
+      },
+      {
+        clientProblem: '"We need to predict something before it happens."',
+        path: 'Discover → Diagnose → Analyze → Evidence',
+        solution: 'Often resolves into Data Engineering + Data Science + Machine Learning — built on data solid enough to trust the prediction.',
+      },
     ],
   },
   es: {
     intro:
-      'Tres preguntas se repiten una y otra vez en empresas con complejidad transaccional real: ¿puedo confiar en esta cifra?, ¿está ocurriendo algo indebido dentro de este volumen? y ¿dónde está ganando dinero realmente este negocio? Todo lo que ofrecemos existe para responder una de esas tres preguntas — nada se vende como una cuarta oferta independiente.',
+      'Henao Intelligence es una consultoría de inteligencia de datos y tecnología. Investigamos primero el problema de negocio, y después determinamos qué construir — una corrección de calidad de datos, un modelo de fraude, un pipeline automatizado, un sistema de machine learning — lo que la evidencia indique que el problema realmente necesita. Las tres áreas de abajo son donde hemos probado ese método con mayor profundidad. Son ejemplos de lo que investigamos, no el límite de lo que construimos.',
+    problemsKicker: 'Problemas de Negocio que Investigamos',
+    problemsIntro: 'Tres ejemplos, cada uno respaldado por un caso de estudio completo.',
     pillars: [
       {
         slug: 'data-quality',
@@ -128,19 +173,44 @@ export const servicesContent: Bilingual<ServicesPageContent> = {
         caseStudySlug: 'profitability-analytics',
       },
     ],
-    capabilitiesTitle: 'Las capacidades detrás de los tres pilares',
-    dataEngGroupTitle: 'Datos e Ingeniería',
-    dataEngItems: [
-      'Analítica SQL / Python — la capa de extracción y validación bajo los tres pilares',
-      'Gobierno y Validación de Datos — sostiene los hallazgos de Calidad de Datos más allá de la auditoría inicial',
-      'Analítica de Procesos — apoya las investigaciones de margen y proceso de Rentabilidad',
-      'Ingeniería de Datos — trabajo de pipelines cuando un diagnóstico se convierte en monitoreo continuo',
+    capabilitiesKicker: 'Con Qué Construimos',
+    capabilitiesTitle: 'Capacidades de Solución',
+    capabilitiesIntro:
+      'La tecnología es el resultado de una investigación, no el punto de partida — no vendemos Python o Power BI de forma aislada. Una vez hecho el diagnóstico, esto es con lo que construimos.',
+    capabilityGroups: [
+      {
+        title: 'Datos e Ingeniería',
+        items: ['Analítica de Datos', 'Ingeniería de Datos', 'Arquitectura de Datos', 'Ingeniería de Calidad de Datos', 'SQL / Python'],
+      },
+      {
+        title: 'Inteligencia y Automatización',
+        items: ['Ciencia de Datos', 'Machine Learning', 'Inteligencia Artificial', 'Modelado Predictivo', 'Automatización'],
+      },
+      {
+        title: 'Soporte a la Decisión',
+        items: ['Business Intelligence', 'Power BI', 'Análisis Estadístico', 'Dashboards y Reporting'],
+      },
     ],
-    aiMlGroupTitle: 'IA, ML y Reporting',
-    aiMlItems: [
-      'Machine Learning / Analítica Predictiva — la capa de modelado dentro de Fraude y Riesgo y Rentabilidad',
-      'Business Intelligence / Power BI — la capa de visualización ejecutiva común a los tres casos de estudio',
-      'Dashboards y Automatización — cómo los hallazgos de un diagnóstico permanecen visibles después de la entrega',
+    flexibilityKicker: 'Más Allá de los Tres',
+    flexibilityTitle: 'Cómo un Problema se Convierte en una Solución',
+    flexibilityIntro:
+      'El método no cambia según el problema — solo cambia el destino. Esto ilustra cómo una investigación se resuelve en una solución; describe el alcance del método, no proyectos ya completados.',
+    examples: [
+      {
+        clientProblem: '"Nuestros reportes no coinciden."',
+        path: 'Descubrir → Diagnosticar → Analizar → Evidenciar',
+        solution: 'Suele resolverse en Calidad de Datos + Ingeniería de Datos + Automatización — corrigiendo la inconsistencia de raíz y manteniéndola corregida.',
+      },
+      {
+        clientProblem: '"Perdemos horas en procesos manuales."',
+        path: 'Descubrir → Diagnosticar → Analizar → Evidenciar',
+        solution: 'Suele resolverse en Análisis de Procesos + Automatización + Monitoreo — reemplazando la repetición con un sistema que se vigila a sí mismo.',
+      },
+      {
+        clientProblem: '"Necesitamos predecir algo antes de que ocurra."',
+        path: 'Descubrir → Diagnosticar → Analizar → Evidenciar',
+        solution: 'Suele resolverse en Ingeniería de Datos + Ciencia de Datos + Machine Learning — construido sobre datos lo suficientemente sólidos para confiar en la predicción.',
+      },
     ],
   },
 }

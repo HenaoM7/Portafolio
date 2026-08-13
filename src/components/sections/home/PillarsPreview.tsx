@@ -14,7 +14,10 @@ export default async function PillarsPreview() {
     <section className="py-20 md:py-28 border-b border-ink-border">
       <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
         <FadeInSection>
-          <SectionTitle kicker={locale === 'es' ? 'Servicios' : 'Services'} title={locale === 'es' ? 'Tres preguntas, tres pilares' : 'Three questions, three pillars'} />
+          <SectionTitle
+            kicker={locale === 'es' ? 'Problemas de Negocio que Investigamos' : 'Business Problems We Investigate'}
+            title={locale === 'es' ? 'Tres ejemplos, respaldados por evidencia' : 'Three examples, backed by evidence'}
+          />
         </FadeInSection>
         <div className="grid md:grid-cols-3 gap-px bg-ink-border border border-ink-border">
           {c.pillars.map((pillar, idx) => (
@@ -32,9 +35,12 @@ export default async function PillarsPreview() {
             </FadeInSection>
           ))}
         </div>
-        <div className="mt-10">
+        <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
           <Button href="/services" variant="secondary">
             {tCta('exploreServices')}
+          </Button>
+          <Button href="/services#capabilities" variant="ghost" size="sm">
+            {locale === 'es' ? 'Estos son ejemplos — ver todas las capacidades →' : "These are examples — see the full range of capabilities →"}
           </Button>
         </div>
       </div>

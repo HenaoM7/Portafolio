@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Henao Intelligence — Technology & Data Intelligence Consulting",
-    "description": "We investigate what your data isn't telling you. Data Quality, Fraud & Risk, and Profitability analytics for companies that no longer fully trust their own numbers."
+    "description": "We investigate what your data isn't telling you. A data & technology intelligence consultancy — proven in data quality, fraud & risk, and profitability, built for whatever the problem actually needs."
   },
   "nav": {
     "home": "Home",
@@ -33,8 +33,7 @@
     "backToCaseStudies": "All Case Studies",
     "sendMessage": "Send Message",
     "readArticle": "Read Article",
-    "allInsights": "All Insights",
-    "downloadCv": "Download CV"
+    "allInsights": "All Insights"
   },
   "badges": {
     "simulated": "Simulated Business Case",
