@@ -4,7 +4,18 @@ import { caseStudies } from '@/content/case-studies'
 import { insights } from '@/content/insights'
 import { SITE_URL } from '@/lib/seo'
 
-const staticPaths = ['', '/services', '/method', '/about', '/contact', '/case-studies', '/insights']
+const staticPaths = [
+  '',
+  '/services',
+  '/pricing',
+  '/method',
+  '/about',
+  '/contact',
+  '/case-studies',
+  '/insights',
+  '/legal/privacy',
+  '/legal/terms',
+]
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const dynamicPaths = [

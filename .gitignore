@@ -29,6 +29,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# n8n MCP server (local tooling, not part of the site)
+/n8n-mcp/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

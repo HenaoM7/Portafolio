@@ -163,9 +163,12 @@ export default async function ServicesPage({
       </FadeInSection>
 
       <FadeInSection>
-        <div className="mt-16">
+        <div className="mt-16 flex flex-wrap items-center gap-6">
           <Button href="/contact#diagnostic" variant="primary" size="lg">
             {tCta('requestDiagnostic')}
+          </Button>
+          <Button href="/pricing" variant="ghost">
+            {loc === 'es' ? 'Ver planes y precios →' : 'See plans and pricing →'}
           </Button>
         </div>
       </FadeInSection>

@@ -6,6 +6,7 @@
   "nav": {
     "home": "Home",
     "services": "Services",
+    "pricing": "Pricing",
     "method": "Method",
     "caseStudies": "Case Studies",
     "about": "About",
@@ -19,6 +20,9 @@
     "firmHeading": "Firm",
     "workHeading": "Work",
     "startHeading": "Start",
+    "legalHeading": "Legal",
+    "privacyLink": "Privacy Policy",
+    "termsLink": "Terms of Service",
     "rights": "All rights reserved.",
     "madeWith": "Built with Next.js."
   },

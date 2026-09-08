@@ -20,7 +20,7 @@ export default async function Footer() {
           {locale === 'es' ? 'Consultoría en Tecnología e Inteligencia de Datos' : 'Technology & Data Intelligence Consulting'}
         </p>
       </div>
-      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-14 grid grid-cols-1 sm:grid-cols-3 gap-10">
+      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-14 grid grid-cols-2 sm:grid-cols-4 gap-10">
         <div>
           <p className="font-mono text-xs uppercase tracking-wide text-slate mb-4">
             {t('firmHeading')}
@@ -37,6 +37,7 @@ export default async function Footer() {
           </p>
           <ul className="space-y-2 text-sm text-[#9298a3]">
             <li><Link href="/services" className="hover:text-[#ece9e2]">{tNav('services')}</Link></li>
+            <li><Link href="/pricing" className="hover:text-[#ece9e2]">{tNav('pricing')}</Link></li>
             <li><Link href="/case-studies" className="hover:text-[#ece9e2]">{tNav('caseStudies')}</Link></li>
           </ul>
         </div>
@@ -56,6 +57,15 @@ export default async function Footer() {
                 <SiWhatsapp size={13} /> WhatsApp
               </a>
             </li>
+          </ul>
+        </div>
+        <div>
+          <p className="font-mono text-xs uppercase tracking-wide text-slate mb-4">
+            {t('legalHeading')}
+          </p>
+          <ul className="space-y-2 text-sm text-[#9298a3]">
+            <li><Link href="/legal/privacy" className="hover:text-[#ece9e2]">{t('privacyLink')}</Link></li>
+            <li><Link href="/legal/terms" className="hover:text-[#ece9e2]">{t('termsLink')}</Link></li>
           </ul>
         </div>
       </div>

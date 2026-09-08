@@ -7,8 +7,8 @@ import { Link, usePathname } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 import LocaleSwitcher from './LocaleSwitcher'
 
-const navHrefs = ['/', '/services', '/method', '/case-studies', '/about', '/insights', '/contact'] as const
-const navKeys = ['home', 'services', 'method', 'caseStudies', 'about', 'insights', 'contact'] as const
+const navHrefs = ['/', '/services', '/pricing', '/method', '/case-studies', '/about', '/insights', '/contact'] as const
+const navKeys = ['home', 'services', 'pricing', 'method', 'caseStudies', 'about', 'insights', 'contact'] as const
 
 export default function NavBar() {
   const t = useTranslations('nav')
