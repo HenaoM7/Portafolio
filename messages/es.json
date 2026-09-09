@@ -89,7 +89,10 @@
       "unsure": "Aún no lo sé"
     },
     "message": "Mensaje",
-    "submit": "Enviar Mensaje"
+    "submit": "Enviar Mensaje",
+    "sending": "Enviando…",
+    "success": "Enviado — le responderemos pronto.",
+    "error": "Algo salió mal. Por favor escríbanos directamente por correo."
   },
   "misc": {
     "skipToContent": "Saltar al contenido",
