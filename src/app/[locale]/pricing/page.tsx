@@ -1,4 +1,4 @@
-import { setRequestLocale } from 'next-intl/server'
+import { setRequestLocale, getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { Check, Minus, X } from 'lucide-react'
 import FadeInSection from '@/components/ui/FadeInSection'
@@ -48,6 +48,7 @@ export default async function PricingPage({
   setRequestLocale(locale)
   const loc = locale as Locale
   const c = pricingContent[loc]
+  const tCta = await getTranslations('cta')
   const stateLabel = {
     yes: loc === 'es' ? 'Incluido' : 'Included',
     no: loc === 'es' ? 'No incluido' : 'Not included',
@@ -61,7 +62,73 @@ export default async function PricingPage({
         <p className="text-lg text-[#9298a3] max-w-3xl leading-relaxed -mt-4 mb-16">{c.intro}</p>
       </FadeInSection>
 
+      {/* How pricing follows the method */}
+      <FadeInSection>
+        <section className="border-t border-ink-border pt-10 mb-20">
+          <span className="font-mono text-xs uppercase tracking-wide text-brass">{c.modelKicker}</span>
+          <h2 className="font-display text-2xl font-semibold mt-2 mb-3">{c.modelTitle}</h2>
+          <p className="text-[#9298a3] max-w-2xl mb-8">{c.modelIntro}</p>
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-3 mb-6">
+            {c.modelSteps.map((step, i) => (
+              <div key={step} className="flex items-center gap-2">
+                <span className="font-mono text-xs uppercase tracking-wide border border-ink-border px-3 py-1.5 card-edge text-[#c9c5bb]">
+                  {step}
+                </span>
+                {i < c.modelSteps.length - 1 && <span className="text-slate" aria-hidden="true">→</span>}
+              </div>
+            ))}
+          </div>
+          <Button href="/method" variant="ghost">{c.modelLinkLabel} →</Button>
+        </section>
+      </FadeInSection>
+
+      {/* Business outcomes */}
+      <FadeInSection>
+        <section className="border-t border-ink-border pt-10 mb-20">
+          <span className="font-mono text-xs uppercase tracking-wide text-brass">{c.outcomesKicker}</span>
+          <h2 className="font-display text-2xl font-semibold mt-2 mb-3">{c.outcomesTitle}</h2>
+          <p className="text-[#9298a3] max-w-2xl mb-8">{c.outcomesIntro}</p>
+          <ul className="grid sm:grid-cols-2 gap-x-10 gap-y-3">
+            {c.outcomes.map((item) => (
+              <li key={item} className="flex items-start gap-2 text-sm text-[#c9c5bb]">
+                <Check size={14} className="text-brass mt-1 shrink-0" aria-hidden="true" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </FadeInSection>
+
+      {/* What can come out of the diagnosis */}
+      <FadeInSection>
+        <section className="border-t border-ink-border pt-10 mb-20">
+          <span className="font-mono text-xs uppercase tracking-wide text-brass">{c.capabilitiesKicker}</span>
+          <h2 className="font-display text-2xl font-semibold mt-2 mb-3">{c.capabilitiesTitle}</h2>
+          <p className="text-[#9298a3] max-w-2xl mb-10">{c.capabilitiesIntro}</p>
+          <div className="grid md:grid-cols-3 gap-10">
+            {c.capabilities.map((group) => (
+              <div key={group.title}>
+                <p className="font-mono text-xs uppercase tracking-wide text-slate mb-4">{group.title}</p>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span key={item} className="font-mono text-xs border border-ink-border px-2.5 py-1 card-edge text-[#c9c5bb]">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </FadeInSection>
+
       {/* Tiers */}
+      <FadeInSection>
+        <div className="border-t border-ink-border pt-10 mb-6">
+          <span className="font-mono text-xs uppercase tracking-wide text-brass">{c.tiersKicker}</span>
+          <h2 className="font-display text-2xl font-semibold mt-2">{c.tiersTitle}</h2>
+        </div>
+      </FadeInSection>
       <div className="grid md:grid-cols-3 gap-px bg-ink-border border border-ink-border mb-8">
         {c.tiers.map((tier) => (
           <FadeInSection key={tier.id}>
@@ -163,7 +230,6 @@ export default async function PricingPage({
                   <tr key={row.label} className={idx % 2 === 0 ? 'bg-ink' : 'bg-ink-surface/40'}>
                     <th scope="row" className="text-left font-normal text-sm text-[#c9c5bb] p-4 align-top">
                       {row.label}
-                      {row.note && <span className="block text-xs text-[#787d87] mt-1 font-normal">{row.note}</span>}
                     </th>
                     {row.values.map((v, i) => (
                       <td key={i} className="text-center p-4 align-top">
@@ -261,7 +327,7 @@ export default async function PricingPage({
           <h2 className="font-display text-2xl font-semibold mb-3">{c.finalCtaTitle}</h2>
           <p className="text-[#9298a3] max-w-xl mx-auto mb-8">{c.finalCtaBody}</p>
           <Button href="/contact" variant="primary" size="lg">
-            {loc === 'es' ? 'Hablar sobre mi empresa' : 'Start a Conversation'}
+            {tCta('startConversation')}
           </Button>
         </section>
       </FadeInSection>
